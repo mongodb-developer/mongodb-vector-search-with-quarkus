@@ -30,8 +30,6 @@ public class GeminiAIGatewayImpl implements GeminiAIGateway {
                 .baseUri(URI.create(geminiAIConfig.getGeminiAIUrl() + "?key=" + geminiAIConfig.getApiKey()))
                 .build(GeminiClient.class);
 
-        LOGGER.info("Requesting embeddings for input: {}", input);
-
         GeminiRequest request = new GeminiRequest(
                 geminiAIConfig.getModel(),
                 new GeminiRequest.Content(List.of(new GeminiRequest.Part(input)))
